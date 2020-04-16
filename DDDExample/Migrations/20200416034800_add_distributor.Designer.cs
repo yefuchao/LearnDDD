@@ -3,14 +3,16 @@ using DDDExample.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DDDExample.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    partial class OrderContextModelSnapshot : ModelSnapshot
+    [Migration("20200416034800_add_distributor")]
+    partial class add_distributor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,7 +59,7 @@ namespace DDDExample.Migrations
                             b1.Property<string>("City")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<int>("DistributorId")
+                            b1.Property<int>("OwnerId")
                                 .HasColumnType("int");
 
                             b1.Property<string>("Street")
@@ -65,12 +67,12 @@ namespace DDDExample.Migrations
 
                             b1.HasKey("Id");
 
-                            b1.HasIndex("DistributorId");
+                            b1.HasIndex("OwnerId");
 
                             b1.ToTable("StreetAddress");
 
                             b1.WithOwner()
-                                .HasForeignKey("DistributorId");
+                                .HasForeignKey("OwnerId");
                         });
                 });
 

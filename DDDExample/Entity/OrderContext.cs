@@ -21,6 +21,7 @@ namespace DDDExample.Entity
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new DistributorEntityTypeConfiguration());
         }
 
 
